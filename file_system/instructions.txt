@@ -1,0 +1,25 @@
+Level 1: The Flat File System
+As a reminder, you are building a basic flat file system (no directories yet, just files).
+
+In your solution.py file, implement a FileSystem class that meets these exact specifications:
+
+1. __init__(self): Initializes the file system.
+
+2. create_file(self, name: str) -> bool: Creates a new empty file. 
+Returns True if successfully created, False if a file with that name already exists.
+
+3. write_to_file(self, name: str, content: str) -> None: Completely overwrites 
+the file with the new content. If the file doesn't exist, it must raise a ValueError.
+
+4. read_file(self, name: str) -> str: Returns the string content of the file. 
+If the file doesn't exist, it must raise a ValueError.
+
+5. delete_file(self, name: str) -> bool: Deletes the file. 
+Returns True if successful, False if the file didn't exist.
+
+Your Next Steps:
+Write the FileSystem class in solution.py.
+
+Run the tests using the VS Code testing tab (or by typing python -m unittest test_solution.py in your terminal).
+
+Debug if necessary until you get 3 passing tests (green checkmarks).
