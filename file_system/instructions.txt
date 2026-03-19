@@ -23,3 +23,40 @@ Write the FileSystem class in solution.py.
 Run the tests using the VS Code testing tab (or by typing python -m unittest test_solution.py in your terminal).
 
 Debug if necessary until you get 3 passing tests (green checkmarks).
+
+###########################################################################
+###########################################################################
+
+Level 2: Hierarchical File System
+You must refactor your FileSystem class to support paths and folders. 
+Every file and folder will now be referenced by an absolute path 
+starting with / (e.g., /docs/resume.txt).
+
+New Core Rules:
+
+1. The root directory / always exists by default.
+2. You cannot create a file or a directory if its parent directory does not exist.
+
+Updated & New Methods:
+
+1. create_directory(self, path: str) -> bool (NEW):
+Creates a new directory. Returns True if successfully created. 
+Returns False if it already exists OR if its parent directory doesn't exist 
+(e.g., creating /a/b fails if /a doesn't exist).
+
+2. create_file(self, path: str) -> bool (UPDATED):
+Creates an empty file. Returns True if successful. Returns False if the file exists OR if its parent directory doesn't exist.
+
+3. write_to_file(self, path: str, content: str) -> None (UPDATED):
+Overwrites the file. Raises ValueError if the file doesn't exist or if path points to a directory.
+
+4. read_file(self, path: str) -> str (UPDATED):
+Returns file content. Raises ValueError if the file doesn't exist or if path points to a directory.
+
+5. delete_file(self, path: str) -> bool (UPDATED):
+Deletes the file. Returns True if successful, False if the file didn't exist.
+
+(Hint: You will need to decide if you want to keep a flat dictionary 
+where the keys are full string paths, or refactor into a 
+nested dictionary / Node-based tree structure. 
+Both are valid, but they have different tradeoffs!)

@@ -2,7 +2,19 @@ from collections import defaultdict
 
 class FileSystem:
     def __init__(self):
-        self.files = defaultdict(str)
+        self.files = defaultdict(lambda:'/')
+
+    def create_directory(self, path: str) -> bool:
+        if path in self.files:
+            return False
+        root='/'
+        for i in path.split('/')[:-1]:
+            root+=i
+            if root not in self.files:
+                return False
+        self.files[path]
+        return True
+        
 
     def create_file(self, name:str)->bool:
         if name in self.files:
